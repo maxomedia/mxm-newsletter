@@ -1,0 +1,26 @@
++table(4,1)(
+	cell2={ style: footerText },
+	cell3={ height: lineBreak }
+)
+	+cellBlock('cell1')
+		h3(style=footerHeading) Social Media
+	+cellBlock('cell2')
+		| Seien Sie immer auf dem neusten Stand mit unseren Social Media Kanälen.
+	+cellBlock('cell4')
+		+table(1,5)(
+			table={ class: "xs-center", width: "0" },
+			cell1={ width: "8" },
+			cell2={ width: "30" },
+			cell3={ width: "21" },
+			cell4={ width: "30" },
+			cell5={ width: "20" }
+		)
+			+cellBlock('cell1')
+				a(href="https://www.facebook.com/EnergieWasserBern", target="_blank", style=link)
+					img(style=img, width="8", height="17", src=mediaPath + 'facebook.png', alt="")
+			+cellBlock('cell3')
+				a(href="http://www.twitter.com/ewbBern", target="_blank", style=link)
+					img(style=img, width="21", height="17", src=mediaPath + 'twitter.png', alt="")
+			+cellBlock('cell5')
+				a(href="https://plus.google.com/+EwbCh/posts", target="_blank", style=link)
+					img(style=img, width="20", height="18", src=mediaPath + 'googleplus.png', alt="")

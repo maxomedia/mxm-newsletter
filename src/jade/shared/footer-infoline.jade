@@ -1,0 +1,17 @@
++table(5,1)(
+	cell3={ style: footerText },
+	cell4={ style: footerText },
+	cell5={ style: footerText }
+)
+	+cellBlock('cell1')
+		h3(style=footerHeading) Infoline
+	+cellBlock('cell2')
+		p(style=footerPhone)
+			img(width="17", height="19", src=mediaPath + 'phone.png', alt="")
+			| &nbsp;058 721 31 32
+	+cellBlock('cell3')
+		a(href="mailto:kundencenter@ewb.ch", style=footerLink) kundencenter@ewb.ch
+	+cellBlock('cell4')
+		a(href="http://www.ewb.ch/de/footer/datenschutzerklaerung.html", target="_blank", style=footerLink) Disclaimer
+	+cellBlock('cell5')
+		a(href="http://www.ewb.ch/de/footer/impressum.html", target="_blank", style=footerLink) Impressum

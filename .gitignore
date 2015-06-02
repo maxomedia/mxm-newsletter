@@ -1,0 +1,19 @@
+# Third party modules
+node_modules
+bower_components
+
+# Test files
+test
+tests
+temp
+
+# Project files
+*.sublime-project
+*.sublime-workspace
+*.lnk
+
+# Built assets
+# for vendor files use css/vendor/vendor.css
+*.map
+fonts/fonticons.*
+dist

@@ -1,0 +1,30 @@
+
+extends ../shared/layout.jade
+
+block body
+	//- include Variables & Mixins
+	include ../core/variables.jade
+	include ../core/mixins.jade
+	
+	//- Layout
+
+	+table(1,1)(
+		table={ width: "100%" },
+		cell1={ align: "center" }
+	)
+		+cellBlock('cell1')
+			
+			//- Wrapper
+			+table(1,3)(
+				table={ id: "wrapper", width: "600", style: { width: "600px" } },
+				cell1={ class: "xs-none", width: 10 },
+				cell2={ width: 580 },
+				cell3={ class: "xs-none", width: 10 }
+			)
+				//- Content Includes
+				+cellBlock('cell2')
+					include ../partials/banner.jade
+					//-include ../partials/grey-content.jade
+					include ../partials/white-content.jade
+					include ../shared/footer.jade
+					include ../shared/unsubscribe.jade
