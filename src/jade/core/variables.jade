@@ -1,13 +1,11 @@
 //- Variable Example
 //- - var $variable_name = string|number|array|object|method
 
--var mediaPath 				= 'http://newsletter.maxomedia.ch/ewb/internet/gfx/';
+//- Pictures in HTML-Newsletter should always be on a Server (because they're not included directliy in the send HTML)
+//- Example: 'http://yourdomain.com/newsletter-1/gfx/'
+-var mediaPath 				= 'gfx/';
 
 -var hueDark 					= '#2a2a2a';
--var hueGreyLight			= '#f1f2f3';
--var hueGrey 					= '#c7cad0';
--var hueGreyDark 			= '#b7bbc3';
--var hueOrange 				= '#ed8013';
 
 -var baseFont 				= 'arial, helvetica, sans-serif';
 -var baseSize 				= '15px';
@@ -19,23 +17,12 @@
 -var heading1 				= { "margin": "0", "font-size": "26px", "font-weight": "bold", "text-align": "center", "text-transform": "uppercase" };
 -var heading2 				= { "margin": "0", "font-size": "20px", "font-weight": "bold" };
 -var heading3 				= { "margin": "0", "font-size": "16px", "font-weight": "bold", "text-align": "center" };
+-var seperator				= { "height": "2px", "background-color": "grey", "border": "0 none" };
 
 -var img 							= { "display": "block", "max-width": "100%", "height": "auto", "border": "0 none" };
 -var phImgSRC					= mediaPath + 'ph.gif';
--var minLineheight 		= { 'mso-line-height-rule': 'exactly', 'line-height': '1px' };
+-var minLineheight 		= { 'mso-line-height-rule': 'exactly', 'line-height': '0px' };
 
--var button 					= { "display": "block", "padding-top": "12px", "padding-bottom": "12px", "padding-left": "12px", "padding-right": "12px", "background-color": hueOrange, "font-size": "13px", "font-weight": "bold", "color": "#fff", "text-decoration": "none" }
--var buttonInline 		= { "display": "inline-block", "padding-top": "12px", "padding-bottom": "12px", "padding-left": "12px", "padding-right": "12px", "background-color": hueOrange, "font-size": "13px", "font-weight": "bold", "color": "#fff", "text-decoration": "none" }
+-var button 					= { "display": "block", "padding-top": "12px", "padding-bottom": "12px", "padding-left": "12px", "padding-right": "12px", "background-color": "red", "font-size": "13px", "font-weight": "bold", "color": "#fff", "text-decoration": "none" }
+-var buttonInline 		= { "display": "inline-block", "padding-top": "12px", "padding-bottom": "12px", "padding-left": "12px", "padding-right": "12px", "background-color": "red", "font-size": "13px", "font-weight": "bold", "color": "#fff", "text-decoration": "none" }
 -var buttonIcon		 		= { "font-size": "18px", "line-height": "18px", "vertical-align": "middle" };
-
--var bannerLink 			= { "display": "block", "width": "100%" };
--var bannerImg 				= { "display": "block", "width": "100%", "max-width": "580px", "height": "auto", "border": "0 none" };
-
--var footerHeading		= { "margin": "0", "font-size": "16px", "font-weight": "bold", "text-align": "left" };
--var footerText				= { "margin": "0", "font-size": "11px" };
--var footerPhone			= { "margin": "5px 0", "font-size": "19px", "line-height": "19px", "vertical-align": "middle" };
--var footerLink				= { "font-size": "12px", "color": hueOrange, "text-decoration": "none" };
-
--var unsubscribe			= { "padding": "2px 10px", "background-color": hueGreyDark, "font-size": "11px!important" };
--var unsubscribeText	= { "margin": "0", "font-size": "9px", "font-weight": "bold", "color": "#666666" };
--var unsubscribeLink	= { "font-size": "9px", "color": hueOrange, "text-decoration": "underline" };

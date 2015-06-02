@@ -155,7 +155,6 @@ mixin table(rows,cellsPerRow,hasHead)
 mixin button(eicon, inline)
 	-var btn					= attributes.button || {};
 	-var icon 				= attributes.icon || {};
-	-var rows					= inline ? 1 : 2;
 	-var width 				= inline ? 'auto' : '100%';
 	-var buttonStyles = inline ? buttonInline : button;
 	-var otherStyles 	= { 'display': 'block' };
@@ -183,7 +182,7 @@ mixin button(eicon, inline)
 	-delete btn.style['padding-bottom'];
 	-delete btn.style['background-color'];
 
-	+table(rows,1)(
+	+table(1,1)(
 		cell1 = { align: "center" }
 		cell2 = { height: "9", style: { "height": "9px", "font-size": "1px" } }
 	)
@@ -235,7 +234,3 @@ mixin button(eicon, inline)
 				+cellBlock('cell9')
 					a(target="_blank", href=btn.href, style=otherStyles)
 						+placeholder(pRight,pBottom)
-		
-		-if(rows == 2)
-			+cellBlock('cell2')
-				img(src=mediaPath + 'button-shadow.png', alt="" style=img)
