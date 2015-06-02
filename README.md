@@ -2,10 +2,13 @@
 
 Based on [mxm-gulp](https://github.com/maxomedia/mxm-gulp)
 
+
 - Table Mixin
 - Placeholder Mixin
 - Merge Styles
 - Button Mixin
+
+Watch src/views/example.jade for a better Understanding
 
 Tested with:
 - Apple Mail 8
