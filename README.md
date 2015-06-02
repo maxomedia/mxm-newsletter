@@ -8,7 +8,7 @@ Based on [mxm-gulp](https://github.com/maxomedia/mxm-gulp)
 - Merge Styles
 - Button Mixin
 
-Watch src/views/example.jade for a better Understanding
+Watch [example.jade](https://github.com/maxomedia/mxm-newsletter/blob/develop/src/jade/views/example.jade) for a better Understanding
 
 Tested with:
 - Apple Mail 8
