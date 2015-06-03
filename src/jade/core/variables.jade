@@ -21,9 +21,9 @@
 //- for your own use
 -var heading1 				= { "margin": "0", "font-size": "26px", "font-weight": "bold", "text-align": "center", "text-transform": "uppercase" };
 //- for your own use
--var heading2 				= { "margin": "0", "font-size": "20px", "font-weight": "bold" };
+-var heading2 				= mergeStyles(heading1,{ "font-size": "20px" });
 //- for your own use
--var heading3 				= { "margin": "0", "font-size": "16px", "font-weight": "bold", "text-align": "center" };
+-var heading3 				= mergeStyles(heading1,{ "font-size": "16px" });
 
 //- only for example.jade
 -var seperator				= { "height": "2px", "background-color": "grey", "border": "0 none" };
@@ -38,6 +38,6 @@
 //- used for Button-Mixin (change carefully)
 -var button 					= { "display": "block", "padding-top": "12px", "padding-bottom": "12px", "padding-left": "12px", "padding-right": "12px", "background-color": "red", "font-size": "13px", "font-weight": "bold", "color": "#fff", "text-decoration": "none" }
 //- used for Button-Mixin (change carefully)
--var buttonInline 		= { "display": "inline-block", "padding-top": "12px", "padding-bottom": "12px", "padding-left": "12px", "padding-right": "12px", "background-color": "red", "font-size": "13px", "font-weight": "bold", "color": "#fff", "text-decoration": "none" }
+-var buttonInline 		= mergeStyles(button,{ "display": "inline-block" });
 //- used for Button-Mixin (change carefully)
 -var buttonIcon		 		= { "font-size": "18px", "line-height": "18px", "vertical-align": "middle" };
