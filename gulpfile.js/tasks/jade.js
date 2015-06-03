@@ -5,6 +5,7 @@ var options      = require('../options').jade;
 var handleErrors = require('../utils/handleErrors');
 var kickstarter  = require('../utils/kickstarter');
 
+
 /**
  * Compile jade files in the views directory
  * @return {Object} Gulp stream
@@ -31,7 +32,7 @@ function compileJade () {
 }
 
 // Register task
-gulp.task('jade', compileJade);
+gulp.task('jade', ['xml2js'], compileJade);
 
 // Register event handler
 kickstarter.on('gulp.dev', function () {

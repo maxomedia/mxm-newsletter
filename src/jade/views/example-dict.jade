@@ -1,0 +1,22 @@
+extends ../shared/layout.jade
+
+block body
+	h1 Dictionary integration
+
+	+table(9,1)(
+		cell2={ height: lineBreak },
+		cell4={ height: lineBreak },
+		cell6={ height: lineBreak },
+		cell8={ height: lineBreak }
+	)
+		+cellBlock('cell1')
+			| Text 1
+		+cellBlock('cell3')
+			| Text 2
+		+cellBlock('cell5')
+			| Text 3
+		+cellBlock('cell7')
+			| Text 4
+		+cellBlock('cell9')
+			| Text 5
+	

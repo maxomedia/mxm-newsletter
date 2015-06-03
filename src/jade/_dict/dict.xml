@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<dictionary date="29.06.2014 12:30:35">
+  <item key="1-GROUP_NAME-KEYNAME_1"><![CDATA[Text 1 deutsch]]></item>
+  <item key="1-GROUP_NAME-KEYNAME_2"><![CDATA[Text 2 deutsch]]></item>
+  <item key="1-GROUP_NAME-KEYNAME_3"><![CDATA[Text 3 deutsch]]></item>
+  <item key="1-GROUP_NAME-KEYNAME_4"><![CDATA[Text 4 deutsch]]></item>
+  <item key="1-GROUP_NAME-KEYNAME_5"><![CDATA[Text 5 deutsch]]></item>
+
+  <item key="2-GROUP_NAME-KEYNAME_1"><![CDATA[Text 1 français]]></item>
+  <item key="2-GROUP_NAME-KEYNAME_2"><![CDATA[Text 2 français]]></item>
+  <item key="2-GROUP_NAME-KEYNAME_3"><![CDATA[Text 3 français]]></item>
+  <item key="2-GROUP_NAME-KEYNAME_4"><![CDATA[Text 4 français]]></item>
+  <item key="2-GROUP_NAME-KEYNAME_5"><![CDATA[Text 5 français]]></item>
+
+  <item key="3-GROUP_NAME-KEYNAME_1"><![CDATA[Text 1 italiano]]></item>
+  <item key="3-GROUP_NAME-KEYNAME_2"><![CDATA[Text 2 italiano]]></item>
+  <item key="3-GROUP_NAME-KEYNAME_3"><![CDATA[Text 3 italiano]]></item>
+  <item key="3-GROUP_NAME-KEYNAME_4"><![CDATA[Text 4 italiano]]></item>
+  <item key="3-GROUP_NAME-KEYNAME_5"><![CDATA[Text 5 italiano]]></item>
+</dictionary>
