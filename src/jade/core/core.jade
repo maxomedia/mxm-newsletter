@@ -1,5 +1,5 @@
 //- Merge Style Objects
--var mergeStyles = function(obj1, obj2) {
+-function mergeStyles(obj1, obj2) {
 -	var obj = {};
 -	for(var attr in obj1) {
 -		obj[attr] = obj1[attr];
@@ -11,18 +11,62 @@
 -};
 
 //- Translate a key
-- function translate(key){
--
-- 	// If language is not defined
-- 	if (!lang) return 'Language not defined'
--
-- 	
-- 	var items = dictionary.item;
-- 	for(var i = 0; i < items.length; i++){
-- 		var item = items[i]
-- 		if (item.$.key === lang + '-' + key) return item._
-- 	}
--
-- 	// No key found, return composed key
-- 	return lang + '-' + key
-- }
+-var lang = lang || 1;
+-var dict = dict || {};
+
+-function translate(k, attrs) {
+-	var key					= lang + '-' + k;
+-	var value				= dict[key];
+- var attrCounter = 0;
+
+-	if(value) {
+-		tagReplacement();
+//-		console.log(value);
+-		return value;
+-	}
+
+-	return key;
+
+-	function tagReplacement() {
+-		var tags = value.match(/\#\/?[a-zA-Z]+\#/g);
+
+-		for(var t in tags) {
+-			var tagName = tags[t].replace(/\#/g,'').toLowerCase();
+
+-			value = value.replace(tags[t], function(result) {
+-				return result.replace('#','<').replace('#','>').toLowerCase();
+-			});
+
+-			exeption(tagName);
+-		}
+-	};
+
+- function exeption(tagName) {
+- 	var regex = new RegExp('<' + tagName + '>');
+
+- 	// Replace TAGs //////////////////////////////////////		
+-		// Link-open TAG
+- 	if(tagName == 'link' || tagName == 'url') {
+-			var url	= attrs && attrs[attrCounter] ? attrs[attrCounter++] : k + '_URL';
+-			value = value.replace(regex, '<a href="' + url + '" target="_blank">');
+-		}
+-		// Link-close TAG
+-		if(tagName == '/link' || tagName == '/url') value = value.replace(regex, '</a>');
+		
+
+- 	// Replace HTML-Entities /////////////////////////////
+- 	// non-breakable-space
+-		if(tagName == 'nbsp') value = value.replace(regex, '&nbsp;');
+- 	// shy
+-		if(tagName == 'shy') { value = value.replace(regex, '&shy;'); console.log(value); }
+- 	// laquo
+-		if(tagName == 'laquo') value = value.replace(regex, '&laquo;');
+- 	// raquo
+-		if(tagName == 'raquo') value = value.replace(regex, '&raquo;');
+- 	// amp
+-		if(tagName == 'amp') value = value.replace(regex, '&amp;');
+- 	// copyright
+-		if(tagName == 'copy') value = value.replace(regex, '&copy;');
+
+-	};
+-};

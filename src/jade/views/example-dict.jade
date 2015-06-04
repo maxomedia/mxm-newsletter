@@ -1,7 +1,9 @@
 extends ../shared/layout.jade
 
 block body
-	h1 Dictionary integration
+	include ../_dict/dict.jade
+
+	h1!=translate('GROUP_NAME-KEYNAME_1')
 
 	+table(9,1)(
 		cell2={ height: lineBreak },
@@ -10,13 +12,7 @@ block body
 		cell8={ height: lineBreak }
 	)
 		+cellBlock('cell1')
-			| Text 1
+			!=translate('GROUP_NAME-KEYNAME_2', ['GROUP_NAME-KEYNAME_3'])
 		+cellBlock('cell3')
-			| Text 2
-		+cellBlock('cell5')
-			| Text 3
-		+cellBlock('cell7')
-			| Text 4
-		+cellBlock('cell9')
-			| Text 5
+			!=translate('GROUP_NAME-KEYNAME_5')
 	
