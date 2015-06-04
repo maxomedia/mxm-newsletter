@@ -32,7 +32,7 @@ function compileJade () {
 }
 
 // Register task
-gulp.task('jade', ['xml2js'], compileJade);
+gulp.task('jade', compileJade);
 
 // Register event handler
 kickstarter.on('gulp.dev', function () {
