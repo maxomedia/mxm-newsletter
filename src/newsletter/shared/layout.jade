@@ -1,0 +1,35 @@
+//- include Variables & Mixins
+include ../core/core.jade
+include ../core/variables.jade
+include ../core/mixins.jade
+
+doctype html
+
+html
+	head
+		meta(charset='utf-8')
+		//- Don't use the viewport-TAG in E-Mails
+		//-meta(name='viewport' content='width=device-width, initial-scale=1')
+		
+		//- Include this when you've created a responsive CSS-File
+		//-style(type="text/css")
+		//-	include ../../../dist/css/main.css
+	
+		body(style=mergeStyles({ margin: 0, padding: 0 }, baseText))
+			//- Layout
+			+table(1,1)(
+				table={ width: "100%" },
+				cell1={ align: "center" }
+			)
+				+cellBlock('cell1')
+					
+					//- Wrapper
+					+table(1,3)(
+						table={ id: "wrapper", width: "600", style: { width: "600px" } },
+						cell1={ class: "xs-none", width: 10 },
+						cell2={ width: 580 },
+						cell3={ class: "xs-none", width: 10 }
+					)
+						//- Examples
+						+cellBlock('cell2')
+							block body

@@ -73,6 +73,22 @@ var options = {
 		//locals: {}
 	},
 
+	newsletter: {
+
+		// Jade files to watch for changes
+		src: 'src/newsletter/**/*.jade',
+
+		// Entry points for actual pages
+		views: 'src/newsletter/views/**/*.jade',
+
+		// Dictionary ID
+		dictID: 265,
+
+		// Destination for html files
+		dest: destination
+		
+	},
+
 /*	// SVG icons to webfont
 	fonticons: {
 
