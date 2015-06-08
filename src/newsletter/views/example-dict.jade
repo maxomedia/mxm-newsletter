@@ -1,17 +1,9 @@
 extends ../shared/layout.jade
--console.log('test', dict);
 
 block body
-	h1!=translate('NL_1-HEAD')
+	h1!=translate('GROUPNAME_KEYNAME_1')
 
-	+table(9,1)(
-		cell2={ height: lineBreak },
-		cell4={ height: lineBreak },
-		cell6={ height: lineBreak },
-		cell8={ height: lineBreak }
-	)
+	+table(1,1)
 		+cellBlock('cell1')
-			!=translate('GROUP_NAME-KEYNAME_2', ['GROUP_NAME-KEYNAME_3'])
-		+cellBlock('cell3')
-			!=translate('NL_1_FOOTER-SOME_2')
+			!=translate('GROUPNAME_KEYNAME_2')
 	

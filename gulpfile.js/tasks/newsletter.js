@@ -65,7 +65,7 @@ function compileNewsletter (gulpCallback) {
 // Load Dictionary
 function getDict(callback) {
 	request({
-		url: 'http://nldict.mxm.ch/Get/' + options.dictID,
+		url: options.dictURL,
 		json: true
 	}, function(error, response, body) {
 		if(error)

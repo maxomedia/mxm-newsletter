@@ -82,7 +82,7 @@ var options = {
 		views: 'src/newsletter/views/**/*.jade',
 
 		// Dictionary ID
-		dictID: 265,
+		dictURL: 'https://github.com/maxomedia/mxm-newsletter/tree/develop/dist/json/dict.json',
 
 		// Destination for html files
 		dest: destination
