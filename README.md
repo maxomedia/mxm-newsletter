@@ -7,7 +7,7 @@ Based on [mxm-gulp](https://github.com/maxomedia/mxm-gulp)
 - Placeholder Mixin
 - Merge Styles
 - Button Mixin
-- Dictionry Integration (mxm only)
+- Dictionary Integration
 
 Watch [example.jade](https://github.com/maxomedia/mxm-newsletter/blob/develop/src/jade/views/example.jade) for a better Understanding
 
