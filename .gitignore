@@ -16,4 +16,6 @@ temp
 # for vendor files use css/vendor/vendor.css
 *.map
 fonts/fonticons.*
-dist
+dist/*
+!dist/gfx
+!dist/json

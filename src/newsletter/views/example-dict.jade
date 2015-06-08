@@ -1,0 +1,9 @@
+extends ../shared/layout.jade
+
+block body
+	h1!=translate('GROUPNAME_KEYNAME_1')
+
+	+table(1,1)
+		+cellBlock('cell1')
+			!=translate('GROUPNAME_KEYNAME_2')
+	

@@ -1,0 +1,43 @@
+//- Variable Example
+//- - var $variable_name = string|number|array|object|method
+
+//- Pictures in HTML-Newsletter should always be on a Server (because they're not included directliy in the send HTML)
+//- example: 'http://yourdomain.com/newsletter-1/gfx/'
+-var mediaPath 				= 'gfx/';
+
+//- define as many Colors as you want
+-var hueDark 					= '#2a2a2a';
+
+//- used for baseText Variable
+-var baseFont 				= 'arial, helvetica, sans-serif';
+-var baseSize 				= '15px';
+-var lineBreak 				= baseSize.replace(/px/g,'');
+-var baseColor 				= hueDark;
+
+//- baseText goes to every th and td TAG created by the Table-Mixin
+-var baseText 				= { "font-family": baseFont, "font-size": baseSize, "font-weight": "normal", "color": baseColor, "line-height": "1.4" };
+//- for your own use
+-var link 						= { "color": "inherit", "text-decoration": "none" };
+//- for your own use
+-var heading1 				= { "margin": "0", "font-size": "26px", "font-weight": "bold", "text-align": "center", "text-transform": "uppercase" };
+//- for your own use
+-var heading2 				= mergeStyles(heading1,{ "font-size": "20px" });
+//- for your own use
+-var heading3 				= mergeStyles(heading1,{ "font-size": "16px" });
+
+//- only for example.jade
+-var seperator				= { "height": "2px", "background-color": "grey", "border": "0 none" };
+
+//- for your own use
+-var img 							= { "display": "block", "max-width": "100%", "height": "auto", "border": "0 none" };
+//- used for Table-Mixin (change carefully)
+-var phImgSRC					= mediaPath + 'ph.gif';
+//- used for Table-Mixin (do not change this)
+-var minLineheight 		= { 'mso-line-height-rule': 'exactly', 'line-height': '0px' };
+
+//- used for Button-Mixin (change carefully)
+-var button 					= { "display": "block", "padding-top": "12px", "padding-bottom": "12px", "padding-left": "12px", "padding-right": "12px", "background-color": "red", "font-size": "13px", "font-weight": "bold", "color": "#fff", "text-decoration": "none" }
+//- used for Button-Mixin (change carefully)
+-var buttonInline 		= mergeStyles(button,{ "display": "inline-block" });
+//- used for Button-Mixin (change carefully)
+-var buttonIcon		 		= { "font-size": "18px", "line-height": "18px", "vertical-align": "middle" };

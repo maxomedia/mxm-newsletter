@@ -18,9 +18,13 @@
     "gulp-notify": "2.2.0",
     "gulp-sourcemaps": "1.5.2",
     "gulp-util": "3.0.4",
+    "jade": "1.10.0",
     "lodash": "3.7.0",
     "pretty-hrtime": "1.0.0",
+    "request": "2.57.0",
     "require-dir": "0.3.0",
+    "through2": "0.6.5",
+    "vinyl": "0.5.0",
     "webpack": "1.8.9"
   }
 }
