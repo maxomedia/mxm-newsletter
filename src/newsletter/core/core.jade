@@ -45,7 +45,7 @@
 -		// Link-open TAG
 - 	if(tagName == 'link' || tagName == 'url') {
 -			var url	= attrs && attrs[attrCounter] ? attrs[attrCounter++] : k + '_URL';
--			value = value.replace(regex, '<a href="' + url + '" target="_blank">');
+-			value = value.replace(regex, '<a href="' + translate(url) + '" target="_blank">');
 -		}
 -		// Link-close TAG
 -		if(tagName == '/link' || tagName == '/url') value = value.replace(regex, '</a>');
