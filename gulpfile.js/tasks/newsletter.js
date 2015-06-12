@@ -1,13 +1,15 @@
 var gulp         = require('gulp');
 var jade         = require('jade');
-var request 		 = require('request');
-var through 		 = require('through2');
-var path 				 = require('path');
-var File 				 = require('vinyl');
+var request      = require('request');
+var through      = require('through2');
+var path         = require('path');
+var File         = require('vinyl');
 var browserSync  = require('browser-sync');
 var options      = require('../options').newsletter;
 var handleErrors = require('../utils/handleErrors');
 var kickstarter  = require('../utils/kickstarter');
+var data = require('gulp-data');
+var ext = require('gulp-util').replaceExtension;
 
 /**
  * Compile jade files in the newsletter/views directory
@@ -27,6 +29,7 @@ function compileNewsletter (gulpCallback) {
 				var name 				= path.basename(file.history).replace(/\.jade$/,'-' + lang) + '.html';
 				var filePath 		= path.join(base, name);
 
+				console.log(ext(file.path, '-' + lang + '.html'));
 				var compileFn 	= jade.compile(template, {
 					filename: filePath
 				});
@@ -42,7 +45,7 @@ function compileNewsletter (gulpCallback) {
 				}));
 			}
 
-			callback();
+			callback(null, null);
 		}))
 
 		// Handle them errors
