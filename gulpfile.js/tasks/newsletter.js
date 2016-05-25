@@ -23,18 +23,18 @@ function compileNewsletter (gulpCallback) {
 		// Compile files
 		.pipe(through.obj(function(file,enc,callback) {
 			for(var lang in dict) {
-				var dictionary 	= JSON.stringify(dict[lang]);
-				var template 		= file.contents.toString('utf8');
-				var base 				= file.base;
-				var name 				= path.basename(file.history).replace(/\.jade$/,'-' + lang) + '.html';
-				var filePath 		= path.join(base, name);
+				var dictionary = JSON.stringify(dict[lang]);
+				var template   = file.contents.toString('utf8');
+				var base       = file.base;
+				var name       = path.basename(file.history).replace(/\.jade$/,'-' + lang) + '.html';
+				var filePath   = path.join(base, name);
 
 				console.log(ext(file.path, '-' + lang + '.html'));
-				var compileFn 	= jade.compile(template, {
+				var compileFn = jade.compile(template, {
 					filename: filePath
 				});
 
-				var html 				= compileFn({
+				var html = compileFn({
 					dict: dict[lang]
 				});
 
