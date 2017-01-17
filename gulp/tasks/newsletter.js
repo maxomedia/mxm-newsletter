@@ -1,25 +1,27 @@
 var gulp         = require('gulp');
-var jade         = require('jade');
+var pug         = require('pug');
 var request      = require('request');
 var through      = require('through2');
 var path         = require('path');
 var File         = require('vinyl');
 var browserSync  = require('browser-sync');
 var options      = require('../options').newsletter;
-var handleErrors = require('../utils/handleErrors');
-var kickstarter  = require('../utils/kickstarter');
+var errorHandler = require('../utils/errorHandler');
 var data         = require('gulp-data');
 var ext          = require('gulp-util').replaceExtension;
-var watch        = require('gulp-watch');
+var plumber      = require('gulp-plumber');
 
 /**
- * Compile jade files in the newsletter/views directory
+ * Compile pug files in the newsletter/views directory
  * @return {Object} Gulp stream
  */
 function compileNewsletter (gulpCallback) {
 	getDict(function(dict,langs) {
+
 		// Define source files
-		gulp.src( options.views )
+		return gulp.src( options.views )
+
+		.pipe(plumber(errorHandler))
 		
 		// Compile files
 		.pipe(through.obj(function(file,enc,callback) {
@@ -27,11 +29,11 @@ function compileNewsletter (gulpCallback) {
 				var dictionary = JSON.stringify(dict[lang]);
 				var template   = file.contents.toString('utf8');
 				var base       = file.base;
-				var name       = path.basename(file.history).replace(/\.jade$/,'-' + lang) + '.html';
+				var name       = path.basename(file.history).replace(/\.pug$/,'-' + lang) + '.html';
 				var filePath   = path.join(base, name);
 
 				console.log(ext(file.path, '-' + lang + '.html'));
-				var compileFn = jade.compile(template, {
+				var compileFn = pug.compile(template, {
 					filename: filePath
 				});
 
@@ -49,20 +51,11 @@ function compileNewsletter (gulpCallback) {
 			callback(null, null);
 		}))
 
-		// Handle them errors
-		.on( 'error', handleErrors)
-
 		// Save to destination
-		.pipe( gulp.dest( options.dest ) )
-
-		// Notify Gulptask has ended
-		.on('end', function() {
-			gulpCallback();
-		})
+		.pipe(gulp.dest(options.dest))
 
 		// Reolad page
 		.pipe(browserSync.reload({stream: true}));
-
 	});
 };
 
@@ -100,15 +93,6 @@ function dev () {
 		gulp.start('newsletter');
 	});
 }
-
-// Register task
-gulp.task('newsletter', compileNewsletter);
-gulp.task('newsletter:dev', dev);
-gulp.task('newsletter:stage', compileNewsletter);
-
-// Register event handler
-kickstarter.on('gulp.dev', dev);
-kickstarter.on('gulp.stage', compileNewsletter);
 
 // Export task
 module.exports = compileNewsletter;
