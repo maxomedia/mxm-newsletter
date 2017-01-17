@@ -1,16 +1,25 @@
-/*
-	gulpfile.js
-	===========
-	Rather than manage one giant configuration file responsible
-	for creating multiple tasks, each task has been broken out into
-	its own file in gulpfile.js/tasks. Any files in that directory get
-	automatically required below.
-	To add a new task, simply add a new task file that directory.
-	gulpfile.js/tasks/default.js specifies the default set of tasks to run
-	when you run `gulp`.
+var gulp          = require('gulp');
+var childProcess  = require('child_process');
+var package       = require('./package.json');
+var options       = require('./gulp/options');
+var browserSync   = require('./gulp/tasks/browser-sync');
+var pugTask       = require('./gulp/tasks/pug');
+var staticTask    = require('./gulp/tasks/static');
+var sassTask      = require('./gulp/tasks/sass');
 
-	SOURCE: https://github.com/greypants/gulp-starter
-*/
+gulp.task('default', ['watch']);
+gulp.task('build', ['static', 'sass', 'pug']);
 
-var requireDir = require('require-dir');
-requireDir('./gulp/tasks', {recurse: true});
+gulp.task('watch', ['build', 'serve'], function () {
+	gulp.watch(options.pug.src, ['pug']);
+	gulp.watch(options.sass.src, ['sass']);
+	gulp.watch(options.static.src, ['static']);
+});
+
+gulp.task('serve', ['build'], browserSync.task);
+gulp.task('pug', pugTask);
+gulp.task('sass', sassTask);
+gulp.task('static', staticTask);
+
+// Set console title to package name
+childProcess.exec('title ' + package.name);
