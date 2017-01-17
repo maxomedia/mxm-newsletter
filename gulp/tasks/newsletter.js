@@ -8,8 +8,9 @@ var browserSync  = require('browser-sync');
 var options      = require('../options').newsletter;
 var handleErrors = require('../utils/handleErrors');
 var kickstarter  = require('../utils/kickstarter');
-var data = require('gulp-data');
-var ext = require('gulp-util').replaceExtension;
+var data         = require('gulp-data');
+var ext          = require('gulp-util').replaceExtension;
+var watch        = require('gulp-watch');
 
 /**
  * Compile jade files in the newsletter/views directory
@@ -92,13 +93,21 @@ function getLangs(dict) {
 	return langs;
 };
 
+function dev () {
+	if (!options) return;
+
+	return watch(options.src, function () {
+		gulp.start('newsletter');
+	});
+}
+
 // Register task
 gulp.task('newsletter', compileNewsletter);
+gulp.task('newsletter:dev', dev);
+gulp.task('newsletter:stage', compileNewsletter);
 
 // Register event handler
-kickstarter.on('gulp.dev', function () {
-	gulp.watch(options.src, ['newsletter']);
-});
+kickstarter.on('gulp.dev', dev);
 kickstarter.on('gulp.stage', compileNewsletter);
 
 // Export task

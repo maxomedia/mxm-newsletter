@@ -1,3 +1,5 @@
+var path = require('path');
+
 /*
  *  Instructions:
  *  =============
@@ -13,6 +15,8 @@
  *	   to go, if your folder structure meets the defaults set.
  */
 
+var source = './src';
+
 // Output folder for assets, relative to gulpfile.js
 var destination = './dist';
 
@@ -21,57 +25,8 @@ var webroot = '';
 
 var options = {
 
-	// Project name
-	name: 'mxm-gulp',
-
-	// Less to CSS
-	less: {
-
-		// Entry point if you don't use incremental build.
-		// This can be an array of files for multiple
-		// bundles:
-		// main: ['src/less/main.less', 'src/less/bundle1.less'],
-		main: 'src/less/main.less',
-
-		// Files to watch for changes and glob used
-		// for incremental less build
-		src: 'src/less/**/*.less',
-
-		// Autoprefixer options, see:
-		// https://www.npmjs.com/package/gulp-autoprefixer
-		// Default used is IE8+, Chrome 20+, Firefox 11+... see:
-		// ./options/less.js for further info
-		// autoprefixer: {browsers: ['last 2 versions']}
-	},
-
-/*	// Javascript bundles
-	webpack: {
-
-		// Define entry points for your scripts.
-		// Use paths starting with './' (this folder)
-		// or '../' (this folders parent)
-		entry: {
-			app: './app.js'
-		},
-
-		// See https://github.com/greypants/gulp-starter/pull/139/files
-		context: require('path').resolve('src/js'),
-	},*/
-
-	jade: {
-
-		// Jade files to watch for changes
-		src: 'src/jade/**/*.jade',
-
-		// Entry points for actual pages
-		views: 'src/jade/views/**/*.jade',
-
-		// Destination for html files
-		dest: destination,
-
-		// Local variables to pass to the compiler
-		//locals: {}
-	},
+	// Project name (used as the console title)
+	name: 'mxm-newsletter',
 
 	newsletter: {
 
@@ -86,19 +41,25 @@ var options = {
 
 		// Destination for html files
 		dest: destination
-		
 	},
 
-/*	// SVG icons to webfont
-	fonticons: {
-
-		// SVG files to watch for changes
-		src: 'src/svg/** /*.svg',
-
-		// Destination folder for the less files
-		// containing the mixin
-		lessDest: 'src/less/core/'
-	},*/
+	sass: {
+		src: source + '/sass/**/*.scss',
+		main: source + '/sass/main.scss',
+		dest: destination + '/css',
+		
+		options: {
+			nodeSass: {
+				includePaths: ['node_modules'],
+			},
+			autoprefixer: {
+				browsers: ['last 2 versions']
+			},
+			sourcemaps: {
+				sourceMappingURLPrefix: webroot + '/css'
+			}
+		}
+	},
 
 	// Static webserver and livereload
 	browserSync: {
@@ -112,13 +73,15 @@ var options = {
 		// proxy: 'localhost:60000'
 		
 		// Wether to open new tab on start or not
-		open: false
+		open: true,
+		logFileChanges: false
 	},
 
 	// These are required for the 
 	// extended options, do not alter
 	dest: destination,
-	webroot: webroot	
+	webroot: webroot,
+	src: source
 };
 
 // Export them options
