@@ -1,15 +1,9 @@
-* { -webkit-text-size-ajdust: none; -moz-text-size-ajdust: none; -ms-text-size-ajdust: none; }
+@import 'node_modules/normalize.css/normalize';
 
-@media (max-width: 599px) {
-	#wrapper { width: 100%!important; }
-	
-	.xs-center { margin: 0 auto; text-align: center; }
-	.xs-none { display: none!important; }
-	.xs-block {
-		display: block; width: 100%!important;
-		> thead, > tbody, > tr, > thead > tr, > tbody > tr {
-			display: block; width: 100%!important;
-			> th, > td { display: block; width: 100%!important; }
-		}
-	}
+p {
+	margin: 0;
+}
+
+.spacer {
+	display: block;
 }
