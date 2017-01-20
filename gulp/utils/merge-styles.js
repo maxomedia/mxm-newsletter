@@ -10,6 +10,14 @@ function cssToArray(style) {
     });
 }
 
+function resolvePadding(value) {
+  var pads = value.trim().split(' ');
+  if (!pads[1]) pads.push(pads[1]);
+  if (!pads[2]) pads.push(pads[1]);
+  if (!pads[3]) pads.push(pads[2]);
+  return pads;
+}
+
 function getRule(rule, style) {
   if (!style) return '';
   var cssObject = cssToObject(style);
@@ -55,4 +63,5 @@ module.exports = {
   cssToObject,
   getRule,
   getValue,
+  resolvePadding
 }
