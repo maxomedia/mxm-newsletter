@@ -2,40 +2,51 @@ include variables.pug
 
 mixin table ()
 	table&attributes(mergeAttributes({
-		cellpadding: 0,
 		cellspacing: 0,
-		style: fontRoman
+		cellpadding: 0
 	}, attributes))
 		block
 
 mixin button()
-	- var background = helpers.getValue("background", attributes.style)
-	td(style= helpers.getRule('border-radius', attributes.style) + helpers.getRule('background', attributes.style))
-		a&attributes(mergeAttributes({
-			style: `display: inline-block;border: 1px solid ${background};`
-		}, attributes))
+	td.button
+		a.button-link&attributes(attributes)
 			block
+
+mixin container
+	center
+		+table.container&attributes(attributes)
+			tr
+				td
+					block
 
 mixin spacer()
 	- var width = helpers.getValue('width', attributes.style) || attributes.width || basePadding;
 	- var height = helpers.getValue('height', attributes.style) || attributes.height || width;
-
-	img.spacer&attributes(mergeAttributes({
-			src: placeholderUrl
+	- delete attributes.width
+	- delete attributes.height
+	div.spacer&attributes(mergeAttributes({
+		style: `width:${width};height:${height};display:table;`
+	}, attributes))
+		img&attributes(mergeAttributes({
+			src: placeholderUrl,
+			style: `width:${width};height:${height};display:table-cell;`
 		}, attributes))
 
 mixin content()
-	+table(attributes)
+	- if (!attributes.width) attributes.width = basePadding
+	- if (!attributes.height) attributes.height = attributes.width || basePadding
+
+	+table(style=attributes.style)
 		tr
-				td(colspan="3")
-					+spacer(width="20px" height="50px")
+			td(colspan="3")
+				+spacer(width='100%' height=attributes.height)
 		tr
 			td
-				+spacer(width="20px" height="50px")
+				+spacer(width=attributes.width height='5px')
 			td
 				block
 			td
-				+spacer(width="20px" height="50px")
+				+spacer(width=attributes.width height='5px')
 		tr
-				td(colspan="3")
-					+spacer(width="20px" height="50px")
+			td(colspan="3")
+				+spacer(width='100%' height=attributes.height)
