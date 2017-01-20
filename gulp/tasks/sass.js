@@ -15,10 +15,8 @@ var errorHandler = require('../utils/errorHandler');
  */
 var compileSass = function () {
 	if (!options) return;
-
-	if (process.argv.indexOf('--production') > -1) {
-		passedOpt.nodeSass.outputStyle = 'compressed';
-	}
+	
+	passedOpt.nodeSass.outputStyle = 'compressed';
 
 	return gulp.src(options.main)
 		.pipe(plumber(errorHandler))
