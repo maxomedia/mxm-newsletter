@@ -14,6 +14,8 @@ Checklist for newsletters
   table {
     border-spacing: 0;
     border-collapse: collapse;
+    table-layout: fixed;
+    padding: 0;
   }
   td {
     padding: 0;
@@ -97,7 +99,7 @@ Checklist for newsletters
   ```html
   <!--[if mso]>
     <style>
-      * { font-family: sans-serif !important; }
+      body, table, p, a, span, h1, h2, h3, h4, h5, h6 /* any other tags */ { font-family: sans-serif !important; }
     </style>
   <![endif]-->
   ```
