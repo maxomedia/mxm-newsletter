@@ -1,26 +1,11 @@
-var gulp        = require('gulp');
-var pug         = require('gulp-pug');
-var browserSync = require('./browser-sync').server;
-var plumber     = require('gulp-plumber');
-var options     = require('../options').pug;
+var gulp         = require('gulp');
+var pug          = require('gulp-pug');
+var plumber      = require('gulp-plumber');
+var inlineCSS    = require('gulp-inline-css');
+var options      = require('../options').pug;
+var browserSync  = require('./browser-sync').server;
 var errorHandler = require('../utils/errorHandler');
-var helpers = require('../utils/merge-styles');
-var inlineCSS = require('gulp-inline-css');
 
-options.options.locals = {
-	mergeAttributes: function (a, b) {
-
-		// Merge styles, if any
-		if (a.style && b.style) {
-			b.style = helpers.mergeStyles(a.style, b.style);
-			delete a.style;
-		}
-
-		// Merge the rest of the attributes
-		return Object.assign({}, a, b);
-	},
-	helpers,
-}
 
 /**
  * Compile pug files in the views directory
