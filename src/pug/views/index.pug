@@ -1,29 +1,29 @@
 extends ../shared/layout.pug
 
 block body
-	+container
-		// [if (gte mso 9)|(IE)]><table class="outlook-row" border="0" cellspacing="0" cellpadding="0" align="center"><tr><td><![endif]
-		+table.outlook-col
-			tr
-				td.col-sm-6
-					h1 lorem ipsum
-					p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, vitae, magnam. Soluta neque obcaecati magnam assumenda excepturi necessitatibus laboriosam provident.
-		// [if (gte mso 9)|(IE)]></td><td><![endif]
-		+table.outlook-col
-			tr
-				td.col-sm-6
-					h1 henry isst einen wasserfall
-					p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, vitae, magnam. Soluta neque obcaecati magnam assumenda excepturi necessitatibus laboriosam provident. Obcaecati magnam assumenda excepturi necessitatibus laboriosam provident. Soluta neque obcaecati magnam assumenda excepturi necessitatibus laboriosam provident. Obcaecati magnam assumenda excepturi necessitatibus laboriosam provident.
-		// [if (gte mso 9)|(IE)]></td></tr></table><![endif]
-		div(style="line-height:50px") &nbsp;
-		+table
-			tr
-				td(style="padding: 0 100px")
-					+table
-						tr
-							td.box
-								p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus a voluptatibus quaerat assumenda, tempore! Error quo provident ut consectetur ipsa hic est amet earum unde commodi! Iusto numquam reprehenderit suscipit.
-		center
-			+table
-				tr
-					+button(href="https://google.ch") a new button
+	//[if (gte mso 9)|(IE)]><table class="outlook-row" border="0" cellspacing="0" cellpadding="0" align="center"><tr><td><![endif]
+	table.outlook-col
+		tr
+			td.col-sm-6
+				h1 lorem ipsum
+				p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, vitae, magnam. Soluta neque obcaecati magnam assumenda excepturi necessitatibus laboriosam provident.
+	//[if (gte mso 9)|(IE)]></td><td><![endif]
+	table.outlook-col
+		tr
+			td.col-sm-6
+				h1 henry isst einen wasserfall
+				p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, vitae, magnam. Soluta neque obcaecati magnam assumenda excepturi necessitatibus laboriosam provident. Obcaecati magnam assumenda excepturi necessitatibus laboriosam provident. Soluta neque obcaecati magnam assumenda excepturi necessitatibus laboriosam provident. Obcaecati magnam assumenda excepturi necessitatibus laboriosam provident.
+		tr
+			td
+				p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, temporibus. Repudiandae dolorum totam quasi. Fugiat, ad obcaecati officia itaque enim ex maiores, iste voluptatibus provident. Iste excepturi dicta distinctio nobis.
+	//[if (gte mso 9)|(IE)]></td></tr></table><![endif]
+	div(style="line-height:50px") &nbsp;
+	table
+		tr
+			td(style="padding: 0 100px")
+				table
+					tr
+						td.box
+							p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus a voluptatibus quaerat assumenda, tempore! Error quo provident ut consectetur ipsa hic est amet earum unde commodi! Iusto numquam reprehenderit suscipit.
+	center
+		+button(href="https://google.ch") a new button
