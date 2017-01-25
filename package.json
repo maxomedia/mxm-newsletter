@@ -37,6 +37,7 @@
     "gulp-util": "3.0.7",
     "node-notifier": "^4.6.1",
     "node-process-windows": "^0.0.2",
+    "run-sequence": "^1.2.2",
     "webpack": "1.13.3"
   },
   "dependencies": {
