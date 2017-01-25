@@ -1,52 +1,16 @@
 include variables.pug
 
-mixin table ()
-	table&attributes(mergeAttributes({
-		cellspacing: 0,
-		cellpadding: 0
-	}, attributes))
-		block
-
 mixin button()
-	td.button
-		a.button-link&attributes(attributes)
-			block
-
-mixin container
-	center
-		+table.container&attributes(attributes)
-			tr
-				td
+	table
+		tr
+			td.button
+				a.button-link&attributes(attributes)
 					block
 
-mixin spacer()
-	- var width = helpers.getValue('width', attributes.style) || attributes.width || basePadding;
-	- var height = helpers.getValue('height', attributes.style) || attributes.height || width;
-	- delete attributes.width
-	- delete attributes.height
-	div.spacer&attributes(mergeAttributes({
-		style: `width:${width};height:${height};display:table;`
-	}, attributes))
-		img&attributes(mergeAttributes({
-			src: placeholderUrl,
-			style: `width:${width};height:${height};display:table-cell;`
-		}, attributes))
-
-mixin content()
-	- if (!attributes.width) attributes.width = basePadding
-	- if (!attributes.height) attributes.height = attributes.width || basePadding
-
-	+table(style=attributes.style)
-		tr
-			td(colspan="3")
-				+spacer(width='100%' height=attributes.height)
-		tr
-			td
-				+spacer(width=attributes.width height='5px')
-			td
-				block
-			td
-				+spacer(width=attributes.width height='5px')
-		tr
-			td(colspan="3")
-				+spacer(width='100%' height=attributes.height)
+mixin container
+	center.container-wrapper
+		div.webkit
+			table.container&attributes(attributes)
+				tr
+					td
+						block
