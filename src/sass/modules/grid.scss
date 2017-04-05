@@ -1,0 +1,13 @@
+.col-sm-6 {
+	width: 50%;
+}
+
+.col-xs-12,
+.col-sm-6 {
+	@include max($xs) {
+		display: block;
+		width: 100%;
+		padding-right: 0;
+		padding-left: 0;
+	}
+}

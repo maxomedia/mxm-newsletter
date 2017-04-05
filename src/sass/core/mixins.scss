@@ -1,0 +1,57 @@
+/**
+ * Media query includes for max-width
+ * Usage: @include max($xs) { ... }
+ *
+ * @param  {Pixel} $media A breakpoint (see variables.scss)
+ * @return {void}
+ */
+@mixin max($max) {
+  @media only screen and (max-width: $max - 1) { @content; }
+}
+
+/**
+ * Media query for min-width and max-width
+ * Usage: @include between($s, $m) { ... }
+ *
+ * @param  {Pixel} $min Min screen size
+ * @param  {Pixel} $max Max screen size
+ * @return {void}
+ */
+@mixin between($min, $max) {
+  @media only screen and (min-width: $min) and (max-width: $max - 1) { @content; }
+}
+
+/**
+ * Media query for min-width
+ * Usage: @include min($xs) { ... }
+ *
+ * @param  {Pixel} $media A breakpoint (see variables.scss)
+ * @return {void}
+ */
+@mixin min($min) {
+    @media only screen and (min-width: $min) { @content; }
+}
+
+/*
+Generate Fonts Mixin
+Use it like this: @include generatefont(Roboto, '/fonts/roboto', 300, normal)
+*/
+@mixin generatefont($font-family, $font-weight: normal, $font-style: normal) {
+  @font-face {
+    font-family: $font-family;
+      src: url('#{$font-path}/#{$font-family}.eot');
+      src: url('#{$font-path}/#{$font-family}.eot?#iefix') format('embedded-opentype'),
+           url('#{$font-path}/#{$font-family}.woff') format('woff'),
+           url('#{$font-path}/#{$font-family}.ttf') format('truetype');
+           //url('#{$file-path}.svg##{$font-family}') format('svg');
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
+/*Font Fallback mixin
+Use it like this: @include font(Roboto);
+*/
+@mixin font($font){
+  font-family: $font, Helvetica, sans-serif;
+  font-weight: normal;
+}
