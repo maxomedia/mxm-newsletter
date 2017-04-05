@@ -21,6 +21,17 @@ h1 {
 	}
 }
 
+.hidden {
+	display: none;
+	font-size: 1px;
+	line-height: 1px;
+	max-height: 0px;
+	max-width: 0px;
+	opacity: 0;
+	overflow: hidden;
+	mso-hide: all;
+}
+
 .box {
 	padding: 100px 50px;
 	background: #eeeeee;
@@ -47,6 +58,24 @@ table {
 	font-family: Arial, sans-serif;
 	font-size: 18px;
 	line-height: 1.5em;
+}
+
+body {
+	margin: 0 !important;
+	background: rgb(80,80,80);
+}
+
+table {
+	border-spacing: 0;
+}
+
+// Some Android 4.4 quirk reset
+div[style*="margin: 16px 0"] { 
+  margin: 0 !important;
+}
+
+td {
+	padding: 0;
 }
 
 .bold {
@@ -76,6 +105,10 @@ p {
 		// So this needs to be important
 		width: 100% !important;
 	}
+}
+
+.container {
+	background: white;
 }
 
 td {
