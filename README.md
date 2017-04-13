@@ -57,7 +57,7 @@ Checklist for newsletters
   </table>
   ```
 
-- A rock solid **button** consists of a `<td>` and an `<a>` tag. It features a button-wide click area and custom padding (except exact horizontal padding in Outlook 07/10/13):
+- A centered button with rounded corners (in about 90% of clients) can be achieved by using `border-radius` for those who support it and a VML fallback with the `v:roundrect` element for Outlook 2007+. In both cases, the whole button is clickable. The table adopts its size to the content, the roundrect has a fixed width:
   ```html
   <center>
     <div style="margin: 0 auto;">
