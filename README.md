@@ -59,25 +59,39 @@ Checklist for newsletters
 
 - A rock solid **button** consists of a `<td>` and an `<a>` tag. It features a button-wide click area and custom padding (except exact horizontal padding in Outlook 07/10/13):
   ```html
-  <style>
-    .button {
-      background: red;
-      border-radius: 3px; // If any
-    }
-
-    .button a {
-      display: inline-block;
-      border: 1px solid red; // Border colored like the bg
-      padding: 15px 30px;
-      border-radius: 3px;
-      background: red;
-    }
-  </style>
-  <td class="button">
-    <a href="https://google.ch">
-      a new button
-    </a>
-  </td>
+  <center>
+    <div style="margin: 0 auto;">
+      <!--[if gte mso 12]>
+        <v:roundrect
+          xmlns:v="urn:schemas-microsoft-com:vml"
+          xmlns:w="urn:schemas-microsoft-com:office:word"
+          href="https://google.ch"
+          style="height:38px;v-text-anchor:middle;width:294px;"
+          arcsize="7%"
+          strokecolor="#e30713"
+          fillcolor="#e30713"
+          fill="t"
+          stroke="f"
+        >
+            <w:anchorlock/>
+            <center style="color:#ffffff;font-family:Arial,sans-serif;font-size:13px;font-weight:bold;">Strecken-Abo hier erneuern</center>
+        </v:roundrect>
+      <![endif]-->
+      <!--[if lt mso 12]><!-->
+        <table class="button" style="border-spacing: 0; border-collapse: collapse; margin: 0 auto;">
+          <tbody>
+            <tr>
+              <td style="background-color: #e30713; border-radius:4px;">
+                <a class="button-link" href="https://google.ch" style="text-decoration: none;border-radius:4px; line-height:38px; display:inline-block;padding:0 30px;">
+                  <span style="color:#ffffff;font-weight:bold;font-family:Arial,sans-serif;font-size:13px;-webkit-text-size-adjust:none;">Strecken-Abo hier erneuern</span>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      <!-- <![endif]-->
+    </div>
+  </center>
   ```
 
 - A **vertical spacer** can be achieved by using following markup with the line-height as spacer property:
